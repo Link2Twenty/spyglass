@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="css/glass.css" />
+  </head>
+  <body>
+    <div id="coords">
+      <img id="image" />
+    </div>
+    <!-- <script src="js/index.js"></script> -->
+    <script>
+      window.addEventListener("load", async () => {
+        const screenDetails = await window.getScreenDetails();
+
+        image.src = `https://picsum.photos/${screenDetails.screens[0].availWidth}/${screenDetails.screens[0].availHeight}`;
+
+        const { screenLeft, screenTop } = window;
+        coords.style.setProperty("--top", window.screenTop);
+        coords.style.setProperty("--left", window.screenLeft);
+      });
+
+      window.setInterval(() => {
+        const { screenLeft, screenTop } = window;
+        coords.style.setProperty("--top", screenTop);
+        coords.style.setProperty("--left", screenLeft);
+      }, 1000 / 120);
+    </script>
+  </body>
+</html>
