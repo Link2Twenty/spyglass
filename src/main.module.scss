@@ -1,0 +1,51 @@
+body,
+html,
+[id="root"] {
+  margin: 0;
+  height: 100%;
+}
+
+.parent {
+  & table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+    & td,
+    & th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    & tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    & tr:hover {
+      background-color: #ddd;
+    }
+
+    & th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4f5b62;
+      color: white;
+    }
+  }
+
+  & button {
+    margin: auto;
+  }
+}
+
+.child {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  & img {
+    transform: translate(calc(var(--left) * -1px), calc(var(--top) * -1px));
+    transition: transform 15ms linear;
+  }
+}
